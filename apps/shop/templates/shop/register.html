@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>register</title>
+        {% load static %}
+        <link href="{%static 'shop/style.css'%}" rel="stylesheet">
+        <link rel="icon" type="image/x-icon" href="{%static 'shop/images/favicon.ico'%}" />
+    </head>
+    <body>
+            <div class="lg_content">
+                    <table cellspacing="30px" align="center">
+                        <form method="post" action="/shop/register_to_db">
+                            {% csrf_token %}
+                        <tr>
+                            <td colspan="2"> 
+                                <input type="text" name="userid" class="reg_ip" placeholder="学号">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                                <input type="text" name="username" class="reg_ip" placeholder="昵称">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                                <input type="password" name="passwd" class="reg_ip"placeholder="密码">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                                <input type="password" name="repasswd" class="reg_ip"placeholder="确认密码">
+                            </td>
+                        </tr>
+                        
+                        <tr>
+                            <td align="left">
+
+                                    <input type="submit" value="注册" style="position:relative;left:40px;" class="button">
+
+                            </td>
+                        </tr>
+                        </form>
+                        <td align="centre" style="position:relative;left:-50px">
+                                <span class="font1">已经注册？</span>
+<!--                                <a href="login.html" class="reg_lg">直接登录</a>-->
+                                <form method="post" action="/shop/jump_login">
+                                    {% csrf_token %}
+                                    <input type="submit" class="button" style="height:25px;width:80px;font-size:12px" value="直接登录">
+                                </form>
+                            </td>
+                    </table>
+            </div>
+    </body>
+</html>
+{% if messages %}
+<script>
+    {% for msg in messages%}
+        alert('{{msg.message}}')
+    {% endfor %}
+</script>
+{% endif %}

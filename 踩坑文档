@@ -1,0 +1,58 @@
+1.django项目运行无误
+2.setting.py 中
+DEBUG = False
+
+ALLOWED_HOSTS = ['*']
+
+STATIC_URL = '/static/'
+
+STATIC_ROOT =  os.path.join(BASE_DIR,'static')
+
+运行 python manage.py collectstatic 进行静态文件收集
+
+3.
+apt install python3-dev 
+apt install gcc
+
+sudo apt-get install libpcre3 libpcre3-dev #ubuntu特有？
+
+pip3 install uwsgi
+
+uwsgi测试
+
+书写uwsgi.ini
+这里附录一份
+
+[uwsgi]
+; 监听的端口
+http = 10.253.17.79:6060
+
+; 项目所在目录，和manage.py同级
+chdir = /home/ming/文档/myweb/why
+
+; 虚拟环境所在目录
+;home=/home/kzzf/project-env/OfferHelp-env
+;PYTHONHOME = /home/kzzf/project-env/OfferHelp-env/bin/
+
+; 主应用中的wsgi文件
+wsgi-file = why/wsgi.py
+
+; 使用路由代理静态资源，但失败了
+;static-safe=/home/kzzf/project/OfferHelp/static/
+;route = /static/(.*) static:/home/kzzf/project/OfferHelp/static/$1
+
+; 代理静态资源：路径映射
+static-map = /static=/home/ming/文档/myweb/why/static
+
+; 启动一个master进程，来管理其余的子进程
+master=True
+processes = 4
+threads = 2
+
+; 保存主进程的pid，用来控制uwsgi服务
+pidfile=uwsgi.pid
+; 启动项目  uwsgi uwsgi.ini
+; uwsgi --stop/reload xxx.pid  停止/重启uwsgi
+
+; 设置后台运行，保存日志
+daemonize=uwsgi.log

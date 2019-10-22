@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Win!</title>
+        {% load staticfiles %}
+        <link href="{%static 'shop/style.css'%}" rel="stylesheet">
+        <link rel="icon" type="image/x-icon" href="{%static 'shop/images/favicon.ico'%}" />
+    </head>
+    <body>
+        <div class="containerDiv">
+            <div class="titleDiv"></div>
+            <div class="problemDiv">
+                <span class="font1" style="font-size:40px">
+                    <p>恭喜你通过所有关卡！</p>
+                    <p>1024程序猿节快乐！</p>
+                    {% load staticfiles %}
+                    <img src="{%static 'shop/images/end.jpg'%}" style="height:250px"/>
+                    <img src="">
+                    <p>完结撒花！哔哩哔哩-(゜-゜)つロ乾杯~</p>
+                </span>
+            </div>
+        </div>
+    </body>
+</html>
+{% if messages %}
+<script>
+    {% for msg in messages%}
+        alert('{{msg.message}}')
+    {% endfor %}
+</script>
+{% endif %}

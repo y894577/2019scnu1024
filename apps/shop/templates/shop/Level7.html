@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        {% load staticfiles %}
+        <link href="{%static 'shop/style.css'%}" rel="stylesheet">
+        <link rel="icon" type="image/x-icon" href="{%static 'shop/images/favicon.ico'%}" />
+    </head>
+    <body>
+        <div class="containerDiv">
+            <div class="titleDiv">
+                <span class="font1">Level7</span>
+            </div>
+
+            <div class="problemDiv">
+                <span class="font2">
+                    https://github.com/bobby285271/1024/releases<br><br>
+                    <div style="font-size:18px">去里面看看吧 //滑稽</div>
+                </span>
+            </div>
+            <div class="answerDiv">
+                <form method="post" action="/shop/LastGame/">
+                    {% csrf_token %}
+                    <input type="text" class="input" name="flag">
+                    <input type="submit" class="button" value="提交">
+                </form>
+            </div>
+        </div>
+    </body>
+</html>
+{% if messages %}
+<script>
+    {% for msg in messages%}
+        alert('{{msg.message}}')
+    {% endfor %}
+</script>
+{% endif %}

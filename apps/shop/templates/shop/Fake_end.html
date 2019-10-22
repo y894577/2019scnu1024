@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Win</title>
+        {% load staticfiles %}
+        <link href="{%static 'shop/style.css'%}" rel="stylesheet">
+        <link rel="icon" type="image/x-icon" href="{%static 'shop/images/favicon.ico'%}" />
+    </head>
+    <body>
+        <div class="containerDiv">
+            <div class="titleDiv"></div>
+            <div class="problemDiv">
+                <span class="font2">
+                    <p>恭喜您通过所有关卡！</p>
+                    <p>点击"继续"体验一波地狱关卡</p>
+                    <p>点击"返回"结束本次玩耍</p>
+                    <p>祝你程序猿节玩得愉快←_←</p>
+                </span>
+            </div>
+            <div class="answerDiv">
+                <form method="post" action="/shop/Level7/">
+                    {% csrf_token %}
+                    <input type="submit" value="继续" class="button" name="continue">
+                </form>
+            </div>
+        </div>
+    </body>
+</html>

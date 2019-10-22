@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>pass2</title>
+        {% load staticfiles %}
+        <link href="{%static 'shop/style.css'%}" rel="stylesheet">
+        <link rel="icon" type="image/x-icon" href="{%static 'shop/images/favicon.ico'%}" />
+    </head>
+    <body>
+        <div class="containerDiv">
+            <div class="titleDiv">
+                <div id="game_div"> 
+                    <span style="font-family:Microsoft YaHei;color: azure;">
+                        空格键跳跃
+                    </span>
+                </div>
+                {% load staticfiles %}
+                <script type="text/javascript" src="{% static 'shop/js/phaser.min.js'%}"></script>
+                {% load staticfiles %}
+                <script type="text/javascript" src="{% static 'shop/js/main.js'%}"></script>
+            </div>
+
+            <div class="problemDiv">
+                 <!-- 左侧小提示 -->
+                <div style="text-align:left;clear:both">
+                    <span class="font2">
+                        手残党的福音<br>
+                        怎样通过这一片障碍呢
+                    </span>
+                </div>
+            </div>
+            <div class="answerDiv">
+                <form method="post" action="/shop/CompareFlag">
+                    {% csrf_token %}
+                    <input type="text" class="input" name="flag">
+                    <input type="submit" class="button" value="提交">
+                </form>
+            </div>
+        </div>
+    </body>
+</html>
+{% if messages %}
+<script>
+    {% for msg in messages%}
+        alert('{{msg.message}}')
+    {% endfor %}
+</script>
+{% endif %}

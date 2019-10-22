@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Level2</title>
+        {% load staticfiles %}
+        <link href="{%static 'shop/style.css'%}" rel="stylesheet">
+        <link rel="icon" type="image/x-icon" href="{%static 'shop/images/favicon.ico'%}" />
+    </head>
+    <body>
+        <!-- 呀！你还发现了一个神秘暗号：以进为退，这会不会和后面的关卡有关呢？ -->
+        <div class="containerDiv">
+            <div class="titleDiv">
+                <span class="font1">第二关</span>
+            </div>
+
+            <div class="problemDiv">
+                <span class="font2">
+                    <p>广州听心阁文化教育咨询有限公司给了软件协会一大笔赞助，但是软协找不到了。</p>
+                    <p>你可以帮软协找一找吗？就在网页中噢。</p>
+                </span>
+            </div>
+            <!-- 没想到你连这里都找到了，那继续前进吧！提示：shop\Hide_Level2\ 猜猜该怎么用呢-->
+        </div>
+    </body>
+</html>
+{% if messages %}
+<script>
+    {% for msg in messages%}
+        alert('{{msg.message}}')
+    {% endfor %}
+</script>
+{% endif %}

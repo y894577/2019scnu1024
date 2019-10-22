@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Level4</title>
+        {% load staticfiles %}
+        <link href="{%static 'shop/style.css'%}" rel="stylesheet">
+        <link rel="icon" type="image/x-icon" href="{%static 'shop/images/favicon.ico'%}" />
+    </head>
+    <body>
+        <div class="containerDiv">
+            <div class="titleDiv">
+                <span class="font1">Level4</span>
+            </div>
+
+            <div class="problemDiv">
+                <div class="leftDiv">
+                    <span class="font2">
+                        <p>
+                            背景（不看也罢）：
+                            公元二〇一九年十月二十四号北京时间八点，当全世界都沉浸在程序员节的喜悦中时，一个个脑袋上写了【1024】的邪恶外星人来到了地球。在全世界都以为地球要毁灭的时候，外星人脑袋上的数字变成了【1023】并露出痛苦的神色，据相关人员研究发现，这些外星人是强迫症星人，造成外星人痛苦的原因是他们看见了【1009】这个无法被2，3，4……999整除的四位数。这时候身为程序员的你知道了，这是你拯救地球的时刻……
+                        </p>
+                    </span>
+                </div>
+                <div class="rightDiv">
+                    <span class="font2">
+                        <p>
+                            题目：
+                            以【1009】为第1个不能被2~999整除四位数开始，求出第1024个这样的四位数。
+                        </p>
+                    </span>
+                </div>
+            </div>
+            <!-- 没想到你连这里都找到了，那继续前进吧！flag：正式冲锋 -->
+            <div class="answerDiv">
+                <form method="post" action="/shop/CompareFlag">
+                    {% csrf_token %}
+                    <input type="text" class="input" name="flag">
+                    <input type="submit" class="button" value="提交">
+                </form>
+            </div>
+        </div>
+    </body>
+</html>
+{% if messages %}
+<script>
+    {% for msg in messages%}
+        alert('{{msg.message}}')
+    {% endfor %}
+</script>
+{% endif %}
