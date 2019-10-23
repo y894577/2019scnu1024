@@ -303,10 +303,10 @@ def LastGame(request):
         elif flag == '666':
             # 更新superflag
                 import django.utils.timezone as timezone
-                STUDB.lastflag = timezone.now()
-                STUDB.superflag = timezone.now()
-                STUDB.timesubtract = (STUDB.lastflag - STUDB.firstflag).total_seconds()
-                STUDB.save()
+                stu.lastflag = timezone.now()
+                stu.superflag = timezone.now()
+                stu.timesubtract = (stu.lastflag - stu.firstflag).total_seconds()
+                stu.save()
                 messages.success(request, '哦吼！恭喜你发现了不得了的β时间线，这一切都是命运石之门的选择~！')
                 return Level7(request)
         else:
@@ -314,5 +314,5 @@ def LastGame(request):
                 return Level7(request)
     else:
         messages.error(request, "请不要试图跳关(▼ヘ▼#)")
-        url = 'shop/Level' + str(STUDB.rank) + '.html'
+        url = 'shop/Level' + str(stu.rank) + '.html'
         return render(request, url)
