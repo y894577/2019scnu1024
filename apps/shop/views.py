@@ -125,7 +125,6 @@ def check_login(f):
             return f(request, *arg, **kwargs)
         else:
             return redirect('/login/')
-
     return inner
 
 
@@ -294,7 +293,9 @@ def LastGame(request):
     if stu.rank == 6 :
         if (flag == 'happy'):
                 import django.utils.timezone as timezone
-                stu.specialflag = timezone.now()
+                stu.superflag = timezone.now()
+                # 记录最后一关通关时间
+                stu.timesubtract_last=(stu.superflag-stu.firstflag).total_seconds()
                 stu.rank += 1
                 stu.save()
                 return True_end(request)
@@ -303,9 +304,9 @@ def LastGame(request):
         elif flag == '666':
             # 更新superflag
                 import django.utils.timezone as timezone
-                stu.lastflag = timezone.now()
-                stu.superflag = timezone.now()
-                stu.timesubtract = (stu.lastflag - stu.firstflag).total_seconds()
+                stu.specialflag = timezone.now()
+                # 记录彩蛋通关时间
+                stu.timesubtract_suprise = (stu.firstflag - stu.specialflagflag).total_seconds()
                 stu.save()
                 messages.success(request, '哦吼！恭喜你发现了不得了的β时间线，这一切都是命运石之门的选择~！')
                 return Level7(request)

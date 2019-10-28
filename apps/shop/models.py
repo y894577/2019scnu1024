@@ -16,6 +16,10 @@ class STUDB(models.Model):
     rank = models.IntegerField(default=1)
     # 时间差
     timesubtract = models.IntegerField(default=0)
+    # 最后一关时间差
+    timesubtract_last = models.IntegerField(default=0)
+    # 彩蛋时间差
+    timesubtract_suprise = models.IntegerField(default=0)
 
     def __str__(self):
         return self.userid
