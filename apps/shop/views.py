@@ -50,7 +50,7 @@ def check_user(request):
 
 
 def jump_register(request):
-    return redirect('/shop/register/')
+    return redirect('/1024/register/')
 
 
 def register(request):
@@ -58,7 +58,7 @@ def register(request):
 
 
 def jump_login(request):
-    return redirect('/shop/login/')
+    return redirect('/1024/login/')
 
 
 # 将数据存到db

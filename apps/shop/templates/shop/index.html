@@ -15,7 +15,7 @@
                                 <span class="font2" style="font-size:30px;">WELCOME TO 1024</span>
                             </td>
                         </tr>
-                        <form action="/shop/check_user/" method="post">
+                        <form action="/1024/check_user/" method="post">
                         {% csrf_token %}
                         <tr>
                             <td colspan="2">
@@ -36,7 +36,7 @@
                         <tr>
                             <td align="left">
                                 <span class="font1">没有账号？</span>
-                                <form action="/shop/jump_register/" method="post">
+                                <form action="/1024/jump_register/" method="post">
                                     {% csrf_token %}
 <!--                                <a href="/shop/register/" class="lg_reg"></a>-->
                                     <input type="submit" value="注册" style="height:25px;width:50px;font-size:12px" class="button">
